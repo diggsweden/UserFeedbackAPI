@@ -28,8 +28,9 @@ SPDX-License-Identifier: CC0-1.0
 
 To provide instrumentation of services from a user perspective, this API provides the foundation
 for collecting anonymous feedback data. The API is designed to be used by a client-side JavaScript drop-in
-library ([INSERT_LINK_TO_JAVASCRIPT_DROP_IN_LIBRARY]()), the first tool if you will, which is responsible for collecting the rating data and sending
-it to the API.
+library [InclusionToolbox](https://github.com/diggsweden/InclusionToolbox) which is driver for the
+[UserFeedbackApp](https://github.com/diggsweden/UserFeedbackApp), this is the first tool, responsible for
+collecting the rating data and sending it to the API.
 
 ---
 
@@ -38,10 +39,12 @@ it to the API.
 In the spring of 2023, the extension of the Covid project determined that to combat the challenge of digital inclusion
 and to provide a more citizen-centric approach to the development of digital services, 14 directives was issued.
 One of these directives was **data-driven development**. Since resources like time and funding is limited the
-perspective of **measure first, then improve** was adopted. To provide a tool for this, the UserFeedbackAPI was introduced
+perspective of **measure first, then improve** was adopted. To provide a tool for this, the UserFeedbackAPI was
+introduced
 to collect anonymous rating data from users of digital services.
 
-**Note:** From the get-go, the UserFeedbackAPI, was planned to be hosted centrally by a government agency and in so doing
+**Note:** From the get-go, the UserFeedbackAPI, was planned to be hosted centrally by a government agency and in so
+doing
 also enable some synergy with the directive of **central governance**. However, due to the fact that the UserFeedbackAPI
 isn't adopted yet by a government agency, the hosting model for the UserFeedbackAPI is open. Initially, had the
 UserFeedbackAPI been centrally hosted the general idea was that the UserFeedbackAPI would be a shared service, only
@@ -204,9 +207,9 @@ individual user's contribution to the rating average skews the statistics.<br/>
 For how to configure the behaviour please see the **[application.yml](src/main/resources/application.properties)** file
 and the **application-\<profile>.yml** files.<br/>
 
-**Note:** The idea behind collecting an impression before a rating is primarily to enable the analysis to include the 
-usefulness of collecting feedback at a specific context. Say hypothetically that a single context is presented 
-(sends impressions) but rarely receives ratings from users, then this lack of user engagement might indicate that this 
+**Note:** The idea behind collecting an impression before a rating is primarily to enable the analysis to include the
+usefulness of collecting feedback at a specific context. Say hypothetically that a single context is presented
+(sends impressions) but rarely receives ratings from users, then this lack of user engagement might indicate that this
 context (location in a user-journey) is less effective.
 
 <br/>
