@@ -1,0 +1,40 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: user-rating-api
+  region: eu-north-1
+  version: "1.26"
+
+iamIdentityMappings:
+  - arn: arn:aws:iam::[ INSERT_AWS_ACCOUNT_ID ]:role/[ INSERT_AWS_EKS_MANAGEMENT_ROLE_LABEL e.g. AWSAdministratorRole ]
+    groups:
+      - system:masters
+    username: [ INSERT_AWS_USERNAME e.g. cli_admin ]
+    noDuplicateARNs: true
+
+  - arn: arn:aws:iam::[ INSERT_AWS_ACCOUNT_ID ]:user/[ INSERT_AWS_USERNAME e.g. cli_admin ]
+    username: cli_admin
+    noDuplicateARNs: true
+
+vpc:
+  subnets:
+    private:
+      eu-north-1a: { id: subnet-[ INSERT_SUBNET_ID ] }
+      eu-north-1b: { id: subnet-[ INSERT_SUBNET_ID ] }
+      eu-north-1c: { id: subnet-[ INSERT_SUBNET_ID ] }
+
+managedNodeGroups:
+  - name: managed-ng-1
+    instanceType: t3.medium
+    minSize: 1
+    maxSize: 4
+    desiredCapacity: 1
+    volumeSize: 10
+    privateNetworking: true
+    labels: { role: worker }
+    tags:
+      nodegroup-role: worker
+    iam:
+      withAddonPolicies:
+        autoScaler: true

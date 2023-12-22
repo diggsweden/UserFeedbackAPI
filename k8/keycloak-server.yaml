@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+        - name: keycloak
+          image: [ INSERT_AWS_ACCOUNT_ID ].dkr.ecr.eu-north-1.amazonaws.com/keycloak:latest
+          command:
+            - "/opt/keycloak/bin/kc.sh"
+          args:
+            - "start"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: VERSION
+              value: '1.0.0'
+            - name: KC_HOSTNAME
+              value: "[ INSERT_KEYCLOAK_HOSTNAME e.g. keycloak.example.com ]"
+            - name: KC_HOSTNAME_STRICT_HTTPS
+              value: "false"
+            - name: KC_HTTP_ENABLED
+              value: "true"
+            - name: KC_PROXY
+              value: "edge"
+            - name: KC_HTTP_PORT
+              value: "8080"
+            - name: KC_DB
+              value: "postgres"
+            - name: KC_DB_URL_HOST
+              value: "[ INSERT_DB_URL e.g. name-rds-prod.cluster-ccccc11ccccc.eu-north-1.rds.amazonaws.com"
+            - name: KC_DB_URL_DATABASE
+              value: "keycloak"
+            - name: KC_DB_URL_PORT
+              value: "5432"
+            - name: KC_DB_USERNAME
+              value: "[ INSERT_DB_USERNAME e.g. postgres ]"
+            - name: KC_DB_PASSWORD
+              value: "[ INSERT_DB_PASSWORD e.g. aSecretPass! ]"
+            - name: KC_TRANSACTION_XA_ENABLED
+              value: "true"
+            - name: KC_HEALTH_ENABLED
+              value: "true"
+            - name: KC_METRICS_ENABLED
+              value: "true"
+            - name: KEYCLOAK_ADMIN
+              value: "[ INSERT_KEYCLOAK_USERNAME e.g. admin ]"
+            - name: KEYCLOAK_ADMIN_PASSWORD
+              value: "[ INSERT_KEYCLOAK_ADMIN_PASSWORD e.g. anotherSecretPass! ]"

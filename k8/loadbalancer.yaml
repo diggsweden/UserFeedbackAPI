@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-rating-api-load-balancer
+  annotations:
+    # Note that the backend talks over HTTP.
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+    # Certificate to use
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-north-1:[ INSERT_AWS_ACCOUNT_ID ]:certificate/[ INSERT_AWS_CERTIFICATE_ID_ISSUED_FOR_THE_REGION ]
+    # Only run SSL on the port named "https" below.
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+spec:
+  type: LoadBalancer
+  selector:
+    app: web
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+    - name: https
+      port: 443
+      targetPort: 8080
