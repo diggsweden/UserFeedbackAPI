@@ -8,7 +8,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # UserFeedbackAPI
 
-[![License: MIT](https://img.shields.io/badge/Licence-MIT-yellow)](https://img.shields.io/badge/Licence-MIT-yellow) [![Standard commitment](https://img.shields.io/badge/Standard_for_public_code-commitment-green)](https://img.shields.io/badge/Standard_for_public_code-commitment-green)
+[![License: MIT](https://img.shields.io/badge/Licence-MIT-yellow)](https://img.shields.io/badge/Licence-MIT-yellow) 
 
 [![API Documentation](https://img.shields.io/badge/API_documentation-OAS3-red)](https://img.shields.io/badge/API_documentation-OAS3-red)
 
@@ -21,6 +21,8 @@ SPDX-License-Identifier: CC0-1.0
 [![Databas](https://img.shields.io/badge/Databas-PostgreSQL-blue)](https://img.shields.io/badge/Databas-PostgreSQL-blue) [![Cache](https://img.shields.io/badge/Cache-Redis-blue)](https://img.shields.io/badge/Cache-Redis-blue)
 
 [![Authentication](https://img.shields.io/badge/Authentication-Keycloak-orange)](https://img.shields.io/badge/Authentication-Keycloak-orange)
+
+[![REUSE status](https://api.reuse.software/badge/github.com/diggsweden/userfeedbackapi)](https://api.reuse.software/info/github.com/diggsweden/userfeedbackapi)
 
 <br />
 

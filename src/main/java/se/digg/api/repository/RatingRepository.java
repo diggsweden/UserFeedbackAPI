@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Digg - Agency for Digital Government
+//
+// SPDX-License-Identifier: MIT
+
 package se.digg.api.repository;
 
 import org.springframework.data.jpa.repository.Query;
