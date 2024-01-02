@@ -1,0 +1,17 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: userfeedbackapi
+Source: https://github.com/diggsweden/userfeedbackapi
+
+Files: docs/**.svg docs/**.json docs/**.drawio docs/**.png
+Copyright: Digg - Agency for Digital Government 
+License: CC0-1.0
+
+# Third-party files.
+
+Files: gradlew*
+Copyright: The original author or authors <info@gradle.com>
+License: Apache-2.0
+
+Files: gradle/** */
+Copyright: The original author or authors <info@gradle.com>
+License: Apache-2.0
