@@ -27,7 +27,7 @@ public class RedisController {
     private RedisCacheLogic redisCacheLogic;
 
     @Autowired
-    private void setImpressionLogic(final RedisCacheLogic redisCacheLogic) {
+    private void setRedisCacheLogic(final RedisCacheLogic redisCacheLogic) {
         this.redisCacheLogic = redisCacheLogic;
     }
 
